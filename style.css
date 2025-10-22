@@ -1,0 +1,92 @@
+:root {
+  --blur-strength: 10px;
+  --hollow-size: 250px;
+  --transition-speed: 0.3s;
+}
+
+/* System dark/light theme support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #0d1117;
+    --text-color: #ffffff;
+    --button-bg: #21262d;
+    --button-hover: #30363d;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #f4f4f4;
+    --text-color: #000000;
+    --button-bg: #e0e0e0;
+    --button-hover: #d0d0d0;
+  }
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-color);
+  color: var(--text-color);
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Spotlight hollow blur effect */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bg-color) url('pic.jpg') center/cover no-repeat;
+  filter: blur(var(--blur-strength));
+  z-index: 1;
+}
+
+.profile-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  box-shadow: 0 0 0 8px var(--bg-color);
+  z-index: 2;
+}
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--bg-color);
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+}
+
+.buttons {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+button {
+  background: var(--button-bg);
+  color: var(--text-color);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background var(--transition-speed), transform var(--transition-speed);
+}
+
+button:hover {
+  background: var(--button-hover);
+  transform: scale(1.05);
+}
