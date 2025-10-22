@@ -1,40 +1,60 @@
-:root {
-  --blur-strength: 10px;
-  --hollow-size: 250px;
-  --transition-speed: 0.3s;
-}
-
-/* System dark/light theme support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #0d1117;
-    --text-color: #ffffff;
-    --button-bg: #21262d;
-    --button-hover: #30363d;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg-color: #f4f4f4;
-    --text-color: #000000;
-    --button-bg: #e0e0e0;
-    --button-hover: #d0d0d0;
-  }
-}
-
 body {
   margin: 0;
   height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  background: var(--bg-color);
-  color: var(--text-color);
-  overflow: hidden;
-  font-family: "Poppins", sans-serif;
+  align-items: center;
+  background-color: #111;
+  transition: background-color 0.5s ease;
 }
 
+/* الحاوية الرئيسية */
+.container {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+/* الصورة */
+.profile-wrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* الأزرار */
+.buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  background-color: #0078ff;
+  color: white;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #005fcc;
+  transform: scale(1.05);
+}
 .container {
   text-align: center;
   position: relative;
